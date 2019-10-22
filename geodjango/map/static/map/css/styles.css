@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+/* ★==　基本設定　=====================================================★ */
+html {
+  overflow-y:scroll;
+}
+
+body {
+  margin:0;
+  padding:0;
+  letter-spacing:1px;
+  font-family:Verdana, Helvetica, sans-serif;
+  font-size:13px;
+  background: #FFFFFF;
+}
+
+br {
+  letter-spacing:normal;
+}
+
+a {
+  color:#D0D0D0;
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration:underline;
+}
+
+img {
+  border:0;
+  vertical-align:bottom;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin:0;
+}
+
+/* ★==　全体のレイアウト==================================================★ */
+#header_line {
+  position:fixed; /* スクロール固定 */
+  height: 60px;
+  width: 100%;
+  background: #d1ed95;
+  z-index: 999; /* 最前面 */
+}
+
+#header {
+  width:800px;
+  margin:0 auto;
+  height: 60px;
+}
+
+#site_name {
+  position:relative;
+  float: left;
+  width:50%;
+}
+
+#kensaku_form1 {
+  position:relative;
+  float: right;
+  width:50%;
+}
+
+#main {
+  width:800px;
+  height: 85vh;
+  margin:0 auto;
+  position:relative; /* 通常の位置を基準とした相対位置 */
+  top:60px;
+  clear:both;
+}
+
+#map {
+  position:relative;
+  float: left;
+  width:70%;
+  height: 100%;
+}
+
+#syosai{
+  position:relative;
+  float: right;
+  width:30%;
+  height: 100%;
+  background: #EEEEEE;
+}
+
+#footer {
+  position:relative; /* 通常の位置を基準とした相対位置 */
+  top:60px;
+  width:100%;
+  height: 30px;
+  background: #d1ed95;
+}
+
+/* ★==　要素ごとに詳細の設定==============================================★ */
+/* @@@@@　ヘッター　@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+#header {
+  /*ヘッターの中身を上下中央揃え*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+/* =======　サイト名　==================================== */
+#site_name {
+
+}
+
+
+/* =======　検索フォーム１　=============================== */
+/*検索ボックス*/
+#kensaku_box1{
+  outline:0;/*クリック時の青い枠線消す*/
+  height:30px;/*検索ボックスの高さ*/
+  float: right;
+  border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/
+  background:#eee;/*検索ボックスの背景カラー*/
+}
+
+/*検索ボタン*/
+#kensaku_botton1{
+  width:70px;/*検索ボタンの横幅*/
+  height:34px;/*検索ボタンの縦幅*/
+  float: right;
+  margin: 0px 20px 0px 0px;　/*外側のすきま：上 右 下 左 */
+  border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/
+  background:#7fbfff;/*検索ボタンの背景カラー*/
+  border:none;/*検索ボタンの枠線を消す*/
+  color:#fff;/*検索ボタンのテキストカラー*/
+  font-weight:bold;/*検索ボタンのテキスト太字*/
+  font-size:16px;/*検索ボタンのフォントサイズ*/
+}
+/*検索ボタンマウスオーバー時*/
+#kensaku_botton1:hover{
+  color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
+}
+
+/* @@@@@　メイン　@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+/* =======　詳細　==================================== */
+#syosai_1{
+    background:#7fbfff;/*背景カラー*/
+    color:#fff;/*検索ボタンのテキストカラー*/
+    font-weight:bold;/*検索ボタンのテキスト太字*/
+    font-size:16px;/*検索ボタンのフォントサイズ*/
+}
+
+
+
+/* @@@@@　フッター　@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+#footer {
+
+}
