@@ -12,9 +12,26 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
+if os.name == 'nt':
+    import platform
+    POSTGRES = r"C:\Program Files\PostgreSQL\9.6"
+    OSGEO4W = r"C:\OSGeo4W"
+    if '64' in platform.architecture()[0]:
+        OSGEO4W += "64"
+    assert os.path.isdir(OSGEO4W), "Directory does not exist: " + OSGEO4W
+
+    os.environ['OSGEO4W_ROOT'] = OSGEO4W
+    os.environ['POSTGRES_ROOT'] = POSTGRES
+    os.environ['GDAL_LIBRARY_PATH'] = OSGEO4W + r"\bin"
+    os.environ['GEOS_LIBRARY_PATH'] = OSGEO4W + r"\bin"
+    os.environ['GDAL_DATA'] = OSGEO4W + r"\share\gdal"
+    os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
+    os.environ['PATH'] = OSGEO4W + r"\bin;" + POSTGRES + r"\bin;" + os.environ['PATH']
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#BASE_DIR  = os.path.normpath(os.path.dirname(__file__)) 
+#BASE_DIR  = os.path.normpath(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -81,14 +98,16 @@ WSGI_APPLICATION = 'geodjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'postgres',
-        'USER': 'kazumaro',
-
+        'USER': 'postgres',
+        'HOST':'localhost',
+        'PASSWORD': os.environ['Postgresql_password'],
     }
 }
 
