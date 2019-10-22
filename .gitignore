@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+geodjango/sugamo.geojson
+geodjango/test.geojson
+geodjango/test2.geojson
+geodjango/test3.geojson
